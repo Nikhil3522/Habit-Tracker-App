@@ -1,12 +1,12 @@
 // import './App.css';
 
-function Habit() {
+function Habit(props) {
   return (
     <div className="habit">
         <div>
-            <h2>Walking daily target 15000 step step sep</h2>
+            <h2>{props.title}</h2>
             <div className="subContainer">
-                <h5>Created at: 12/01/2023</h5>
+                <h5>Created at: {props.date}</h5>
                 <div className="previousDayContainer">
                     {/* day circle */}
                     <div className="previousDayTrack"></div>

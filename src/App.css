@@ -81,13 +81,8 @@ h5{
   background-color: #d42525;
 }
 
-.AddHabitBtn{
-  width: 100px;
-  height: 100px;
-  background-color: #53CE51;
-  border-radius: 50%;
-}
 
+/* Add habit button */
 .AddBtnDiv{
   border-radius: 50%;
   background-color: white;
@@ -97,8 +92,57 @@ h5{
   position: fixed;
   bottom: 4rem;
   margin-left: 25px;
+  cursor: pointer;
 }
 
 .AddBtn{
   font-size: 80px;
+}
+
+/* AddHabit Page */
+.AddTaskContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  width: 380px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.inputHabitField{
+  height: 40px;
+  width: 300px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+  color: white;
+  background-color: grey;
+}
+
+::placeholder{
+  color: white;
+}
+
+.addButton{
+  background-color: #25d44c;
+  height: 40px;
+  width: 130px;
+  color: white;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.addButton:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
 }
