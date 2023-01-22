@@ -1,4 +1,4 @@
-import { ADD_HABIT, SHOW_HABIT } from '../actions';
+import { ADD_HABIT, HABIT_DONE } from '../actions';
 
 const initialHabitsState = {
     allHabit: {
@@ -13,16 +13,21 @@ export default  function habits (state = initialHabitsState, action){
             return {
                 ...state,
                 allHabit: {
-                    habit: [...state.allHabit.habit, [action.habit, action.date, [0,0,0,0,0,0,0]]]
-                //    habit: {...state.allHabit.habit, title : action.habit,
-                //    createdAt: action.date}
+                    habit: [...state.allHabit.habit, [action.habit, action.date, [-1,-1,-1,-1,-1,-1,-1]]]
                 }
-                // allHabit: [ ...state.allHabit, action.habit]
             }
-        case SHOW_HABIT:
-            return {
-                a:"sfda"
-            };
+        case HABIT_DONE:
+            {
+                const size = state.allHabit.habit.length;
+                for(let i=0; i< size; i++){
+                    if(action.habit == state.allHabit.habit[i][0]){
+                        console.log('executed')
+                        state.allHabit.habit[i][2][0] = 1;  
+                    }
+                }
+                // return state;
+            }
+                // return state;
         default:
             return state;
     }

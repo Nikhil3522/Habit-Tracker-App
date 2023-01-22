@@ -23,7 +23,8 @@ function App(props) {
     <div className="App">
       <h1>All Habit</h1>
       {habitList ? habitList.map((item, index )=> (
-        <Habit title={item[0]} date={item[1]} key={index}/>
+        console.log("array", item[2]),
+        <Habit title={item[0]} date={item[1]} array={item[2]} key={index}/>
       )) : null}
       
 

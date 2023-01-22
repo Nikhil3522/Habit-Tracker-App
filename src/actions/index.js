@@ -1,6 +1,6 @@
 //action types
 export const ADD_HABIT = 'ADD_HABIT';
-export const SHOW_HABIT = 'SHOW_HABIT';
+export const HABIT_DONE = 'HABIT_DONE';
 
 //action creators
 export function addHabit(habit, date) {
@@ -11,8 +11,9 @@ export function addHabit(habit, date) {
     }
 }
 
-export function showHabit(){
+export function done(habit){
     return{
-        typr: SHOW_HABIT,
+        type: HABIT_DONE,
+        habit,
     }
 }
