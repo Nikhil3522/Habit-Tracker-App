@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { done } from "../actions";
+import { done, notDone } from "../actions";
+import threeDot from "../image/threeDot.png"
 
 function Habit(props) {
     const dispatch = useDispatch();
+
+    const [threeDotDisplay, setThreeDotDisplay] = useState(false);
+
   return (
     <div className="habit">
         <div>
@@ -27,13 +32,23 @@ function Habit(props) {
             <div className="doneBtn" onClick={() => dispatch(done(props.title))}>
                 {/* green button */}
             </div>
-            <div className="notdoneBtn">
+            <div className="notdoneBtn" onClick={() => dispatch(notDone(props.title))}>
                 {/* red button */}
             </div>
         </div>
-        {/* <div>
-            :
-        </div> */}
+        <div className="options" style={{display:threeDotDisplay?"block":"none"}}>
+            <div className="optionItem">Update</div>
+            <div className="optionItem">Delete</div>
+            <div className="optionItem">View</div>
+        </div>
+        <div>
+            <img 
+                className="threeDotLogo" 
+                src={threeDot} 
+                width={"20px"}
+                onClick={() => {setThreeDotDisplay(!threeDotDisplay)}}
+            />
+        </div>
     </div>
   );
 }

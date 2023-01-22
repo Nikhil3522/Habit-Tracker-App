@@ -1,4 +1,4 @@
-import { ADD_HABIT, HABIT_DONE } from '../actions';
+import { ADD_HABIT, HABIT_DONE, HABIT_NOTDONE } from '../actions';
 
 const initialHabitsState = {
     allHabit: {
@@ -25,9 +25,19 @@ export default  function habits (state = initialHabitsState, action){
                         state.allHabit.habit[i][2][0] = 1;  
                     }
                 }
-                // return state;
+                return state;
             }
-                // return state;
+        case HABIT_NOTDONE:
+            {
+                const size = state.allHabit.habit.length;
+                for(let i=0; i< size; i++){
+                    if(action.habit == state.allHabit.habit[i][0]){
+                        console.log('executed')
+                        state.allHabit.habit[i][2][0] = 0;  
+                    }
+                }
+                return state;
+            }
         default:
             return state;
     }
