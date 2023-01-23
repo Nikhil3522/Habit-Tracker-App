@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "../components/App";
 import AddHabit from "../components/AddHabit";
+import View from "../components/View";
 
 const Navigator = () => {
 
@@ -12,6 +13,9 @@ const Navigator = () => {
                 />
                 <Route
                     path="/addhabit" element={ <AddHabit /> }
+                />
+                <Route
+                    path="/view/:name" element={ <View /> }
                 />
             </Routes>
         </BrowserRouter>

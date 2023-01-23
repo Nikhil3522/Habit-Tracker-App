@@ -176,3 +176,25 @@ h5{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
 }
+
+/* view Page */
+.habitViewContainer{
+  background-color: #D9D9D9;
+  width: 470px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.dayblockContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.dayblock{
+  width: 56px;
+  height: 46px;
+  border-radius: 8px;
+  background-color: white;
+}
