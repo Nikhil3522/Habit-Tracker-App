@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { store } from "../index";
 import { useState, useEffect } from "react";
+import back from '../image/back.png';
 
 function View(props) {
     let {name} = useParams();
+    const navigate = useNavigate();
 
     const [habitList, setHabitList] = useState();
     useEffect(() => {
@@ -11,6 +13,14 @@ function View(props) {
     },[]);
     return (
         <div  className="App">
+            <div style={{height:"30px", width:"50px", marginBottom:"-40px"}}>
+                <img 
+                    src={back} 
+                    width="50px"
+                    style={{cursor:"pointer"}}
+                    onClick={() => {navigate('/')}}
+                />
+            </div>
             <h1>Track your habit</h1>
             {habitList ? habitList.map((item, index) => (
                 item[0] === name ? (

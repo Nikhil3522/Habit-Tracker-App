@@ -9,6 +9,7 @@ function Habit(props) {
     const navigate = useNavigate();
 
     const [threeDotDisplay, setThreeDotDisplay] = useState(false);
+    const [d, setD] = useState(true);
 
   return (
     <div className="habit">
@@ -31,10 +32,10 @@ function Habit(props) {
         </div>
 
         <div className="btnContainer">
-            <div className="doneBtn" onClick={() => dispatch(done(props.title))}>
+            <div className="doneBtn" onClick={() => dispatch(done(props.title), setD(!d))}>
                 {/* green button */}
             </div>
-            <div className="notdoneBtn" onClick={() => dispatch(notDone(props.title))}>
+            <div className="notdoneBtn" onClick={() => dispatch(notDone(props.title), setD(!d))}>
                 {/* red button */}
             </div>
         </div>
