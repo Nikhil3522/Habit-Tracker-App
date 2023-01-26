@@ -15,7 +15,7 @@ function View(props) {
             {habitList ? habitList.map((item, index) => (
                 item[0] === name ? (
                     <div className="habitViewContainer" key={index}>
-                        <h1>{name}</h1>
+                        <h1 style={{marginTop:"0px", color:"black"}}>{name}</h1>
                         <div className="dayblockContainer">
                             {item[2].map((day, i) => (
                                 <div 
@@ -27,9 +27,21 @@ function View(props) {
                                 </div>
                             ))}
                         </div>
-                        <div>
+                        <div style={{display:"flex", justifyContent:"space-between", marginTop:"10px"}}>
                             Created at: {item[1]}
-                            <div>
+                            <div className="totalContainer">
+                                <div className="totalSubContainer">
+                                    <div className="greyCircle"></div>
+                                    <p style={{marginTop:"0px"}}>1</p>
+                                </div>
+                                <div className="totalSubContainer">
+                                    <div className="greenCircle"></div>
+                                    <p style={{marginTop:"0px"}}>1</p>
+                                </div>
+                                <div className="totalSubContainer">
+                                    <div className="redCircle"></div>
+                                    <p style={{marginTop:"0px"}}>1</p>
+                                </div>
                             </div>
                         </div>
                     </div>
