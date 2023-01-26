@@ -1,4 +1,4 @@
-import { ADD_HABIT, HABIT_DONE, HABIT_NOTDONE } from '../actions';
+import { ADD_HABIT, HABIT_DONE, HABIT_NOTDONE, DELETE_HABIT } from '../actions';
 
 const initialHabitsState = {
     allHabit: {
@@ -36,6 +36,13 @@ export default  function habits (state = initialHabitsState, action){
                         state.allHabit.habit[i][2][0] = 0;  
                     }
                 }
+                return state;
+            }
+        case DELETE_HABIT:
+            {
+                console.log("sf");
+                const result = state.allHabit.habit.filter(item => (item[0] !== action.habit));
+                state.allHabit.habit = result;
                 return state;
             }
         default:

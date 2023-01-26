@@ -1,11 +1,11 @@
 import '../App.css';
 import Habit from "./Habit";
 import { FcPlus } from 'react-icons/fc'
-import {showHabit} from '../actions';
 import { useDispatch } from "react-redux";
 import { store } from "../index";
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { deleteHabit } from '../actions';
 // FcPlus
 
 function App(props) {
@@ -13,18 +13,29 @@ function App(props) {
   const navigate = useNavigate();
 
   const [habitList, setHabitList] = useState();
+  const [deleteHabitDependency, setDeleteHabitDependency] = useState(false);
 
   useEffect(() => {
     setHabitList(store.getState().allHabit.habit)
-    // (console.log("sf",dispatch(showHabit())))
-  },[]);
+  },[deleteHabitDependency]);
+
+  const deleteHabitFunction = (name) => {
+    dispatch(deleteHabit(name));
+    setDeleteHabitDependency(!deleteHabitDependency);
+  }
 
   return (
     <div className="App">
       <h1>All Habit</h1>
       {habitList ? habitList.map((item, index )=> (
         console.log("array", item[2]),
-        <Habit title={item[0]} date={item[1]} array={item[2]} key={index}/>
+        <Habit 
+          title={item[0]} 
+          handler = {deleteHabitFunction}
+          date={item[1]} 
+          array={item[2]} 
+          key={index}
+        />
       )) : null}
       
 

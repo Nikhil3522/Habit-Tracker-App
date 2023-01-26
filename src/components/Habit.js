@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { done, notDone } from "../actions";
+import { done, notDone, deleteHabit } from "../actions";
 import threeDot from "../image/threeDot.png"
 
 function Habit(props) {
@@ -40,9 +40,30 @@ function Habit(props) {
             </div>
         </div>
         <div className="options" style={{display:threeDotDisplay?"block":"none"}}>
-            <div className="optionItem">Update</div>
-            <div className="optionItem">Delete</div>
-            <div className="optionItem" onClick={() => navigate(`/view/${props.title}`)}>View</div>
+            <div 
+                className="optionItem"
+            >
+                Update
+            </div>
+            <div 
+                className="optionItem"
+                onClick={
+                    () => {
+                        // dispatch(deleteHabit(props.title),
+                        // setThreeDotDisplay(false))
+                        props.handler(props.title)
+                        setThreeDotDisplay(false)
+                    }
+                }
+            >
+                Delete
+            </div>
+            <div 
+                className="optionItem" 
+                onClick={() => navigate(`/view/${props.title}`)}
+            >
+                View
+            </div>
         </div>
         <div>
             <img 
