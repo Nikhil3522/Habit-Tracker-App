@@ -10,6 +10,12 @@ export default  function habits (state = initialHabitsState, action){
     console.log("Reducer", state);
     switch (action.type) {
         case ADD_HABIT:
+            const size = state.allHabit.habit.length;
+            for(let i=0; i< size; i++){
+                if(action.habit == state.allHabit.habit[i][0]){
+                    return state;
+                }
+            }
             return {
                 ...state,
                 allHabit: {
