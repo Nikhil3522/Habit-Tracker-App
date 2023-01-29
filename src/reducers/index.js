@@ -1,8 +1,17 @@
 import { ADD_HABIT, HABIT_DONE, HABIT_NOTDONE, DELETE_HABIT, MODIFY_STATUS_DONE, MODIFY_STATUS_NOTDONE } from '../actions';
 
+const getLocalData = () => {
+    let localHabitData = localStorage.getItem("HabitStore");
+    if(localHabitData === []){
+        return [];
+    }else{
+        return JSON.parse(localHabitData);
+    }
+}
+
 const initialHabitsState = {
     allHabit: {
-        habit: []
+        habit: getLocalData()
     },
     // habitTracker: [],
 }
@@ -10,16 +19,23 @@ export default  function habits (state = initialHabitsState, action){
     console.log("Reducer", state);
     switch (action.type) {
         case ADD_HABIT:
-            const size = state.allHabit.habit.length;
+            console.log("sdf", state);
+            const size = (state.allHabit.habit===null ? 0 : state.allHabit.habit.length);
             for(let i=0; i< size; i++){
                 if(action.habit == state.allHabit.habit[i][0]){
                     return state;
                 }
             }
+            var tempArr;
+            state.allHabit.habit != null ?
+             tempArr = [...state.allHabit.habit, [action.habit, action.date, [-1,-1,-1,-1,-1,-1,-1]]] :
+              tempArr = [[action.habit, action.date, [-1,-1,-1,-1,-1,-1,-1]]];
+
+            console.log("abc", tempArr);
             return {
                 ...state,
                 allHabit: {
-                    habit: [...state.allHabit.habit, [action.habit, action.date, [-1,-1,-1,-1,-1,-1,-1]]]
+                    habit: [...tempArr]
                 }
             }
         case HABIT_DONE:

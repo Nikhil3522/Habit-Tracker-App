@@ -19,6 +19,10 @@ function App(props) {
     setHabitList(store.getState().allHabit.habit)
   },[deleteHabitDependency]);
 
+  useEffect(() => {
+    localStorage.setItem("HabitStore", JSON.stringify(habitList));
+  }, [habitList]);
+
   const deleteHabitFunction = (name) => {
     dispatch(deleteHabit(name));
     setDeleteHabitDependency(!deleteHabitDependency);
