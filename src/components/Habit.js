@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import doneImg from "../image/done.png";
+import notdoneImg from "../image/notdone.png"
 import { done, notDone, deleteHabit, afterOneDay } from "../actions";
 import threeDot from "../image/threeDot.png"
 
@@ -53,9 +55,11 @@ function Habit(props) {
         <div className="btnContainer">
             <div className="doneBtn" onClick={() => dispatch(done(props.title), setD(!d))}>
                 {/* green button */}
+                <img src={doneImg} width="40px" style={{marginTop: "20px", marginLeft:"10px"}}/>
             </div>
             <div className="notdoneBtn" onClick={() => dispatch(notDone(props.title), setD(!d))}>
                 {/* red button */}
+                <img src={notdoneImg} width="30px" style={{marginTop: "20px", marginLeft:"20px"}}/>
             </div>
         </div>
         <div className="options" style={{display:threeDotDisplay?"block":"none"}}>

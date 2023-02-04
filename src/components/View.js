@@ -2,8 +2,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { store } from "../index";
 import { useState, useEffect } from "react";
 import back from '../image/back.png';
+import doneImg from '../image/done.png';
+import notdoneImg from '../image/notdone.png';
 import { useDispatch } from "react-redux";
-import { modifyStatusDone, modifyStatusNotdone } from "../actions";
+import { modifyStatusDone, modifyStatusNotdone, modifyStatusUnmark } from "../actions";
 
 function View(props) {
     const dispatch = useDispatch();
@@ -94,6 +96,15 @@ function View(props) {
                             setModifyStatus(false)}
                         }
                     >
+                        <img src={doneImg} width="40px" style={{marginTop: "20px", marginLeft:"10px"}}/>
+                    </div>
+                    <div 
+                        className="unmarkedBtn"
+                        onClick={() => {
+                            dispatch(modifyStatusUnmark(name, indexSelected))
+                            setModifyStatus(false)}
+                        }
+                    >
                     </div>
                     <div 
                         className="notdoneBtn"
@@ -102,6 +113,7 @@ function View(props) {
                             setModifyStatus(false)}
                         }
                     >
+                        <img src={notdoneImg} width="30px" style={{marginTop: "20px", marginLeft:"20px"}}/>
                     </div>
                 </div>
         </div>

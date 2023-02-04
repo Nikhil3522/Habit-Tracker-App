@@ -6,6 +6,7 @@ export const DELETE_HABIT = 'DELETE_HABIT';
 export const MODIFY_STATUS_DONE = 'MODIFY_STATUS_DONE';
 export const MODIFY_STATUS_NOTDONE = 'MODIFY_STATUS_NOTDONE';
 export const AFTER_ONE_DAY = 'AFTER_ONE_DAY';
+export const MODIFY_STATUS_UNMARK = 'MODIFY_STATUS_UNMARK';
 
 //action creators
 export function addHabit(habit, date, updated) {
@@ -49,6 +50,14 @@ export function modifyStatusDone(habit, index){
 export function modifyStatusNotdone(habit, index){
     return{
         type: MODIFY_STATUS_NOTDONE,
+        habit,
+        index,
+    }
+}
+
+export function modifyStatusUnmark(habit, index){
+    return{
+        type: MODIFY_STATUS_UNMARK,
         habit,
         index,
     }

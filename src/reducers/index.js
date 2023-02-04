@@ -1,4 +1,13 @@
-import { ADD_HABIT, HABIT_DONE, HABIT_NOTDONE, DELETE_HABIT, MODIFY_STATUS_DONE, MODIFY_STATUS_NOTDONE, AFTER_ONE_DAY } from '../actions';
+import { 
+        ADD_HABIT,
+        HABIT_DONE,
+        HABIT_NOTDONE,
+        DELETE_HABIT,
+        MODIFY_STATUS_DONE,
+        MODIFY_STATUS_NOTDONE,
+        AFTER_ONE_DAY,
+        MODIFY_STATUS_UNMARK
+    } from '../actions';
 
 const getLocalData = () => {
     let localHabitData = localStorage.getItem("HabitStore");
@@ -80,6 +89,16 @@ export default  function habits (state = initialHabitsState, action){
                 for(let i=0; i< size; i++){
                     if(action.habit == state.allHabit.habit[i][0]){
                         state.allHabit.habit[i][2][action.index] = 0;  
+                    }
+                }
+                return state;
+            }
+        case MODIFY_STATUS_UNMARK:
+            {
+                const size = state.allHabit.habit.length;
+                for(let i=0; i< size; i++){
+                    if(action.habit == state.allHabit.habit[i][0]){
+                        state.allHabit.habit[i][2][action.index] = -1;  
                     }
                 }
                 return state;

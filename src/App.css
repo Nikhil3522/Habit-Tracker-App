@@ -111,6 +111,13 @@ h5{
   background-color: #d42525;
 }
 
+.unmarkedBtn{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #a6a6a6;
+}
+
 
 /* Add habit button */
 .AddBtnDiv{
@@ -239,7 +246,7 @@ h5{
 
 .changeStatusOfHabit{
   background-color: rgb(234, 234, 234);
-  width: 180px;
+  width: 230px;
   height: 70px;
   display: flex;
   justify-content: space-around;
