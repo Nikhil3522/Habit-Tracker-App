@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { done, notDone, deleteHabit } from "../actions";
+import { done, notDone, deleteHabit, afterOneDay } from "../actions";
 import threeDot from "../image/threeDot.png"
 
 function Habit(props) {
@@ -11,6 +11,25 @@ function Habit(props) {
     const [threeDotDisplay, setThreeDotDisplay] = useState(false);
     const [d, setD] = useState(true);
 
+    useEffect(()=>{
+
+        // Date of habit created
+        var habitCreatedDate = props.date[0];
+        habitCreatedDate += props.date[1];
+
+        // Today date
+        let newDate = new Date()
+        let todayDate = newDate.getDate();
+        let month = newDate.getMonth() + 1;
+        let day = todayDate+'/'+month; //today date format in 
+
+        let difference = todayDate-habitCreatedDate;
+
+        if(difference != 0 && day != props.updated){
+            dispatch(afterOneDay(props.title, day))
+        }
+
+    }, [])
   return (
     <div className="habit">
         <div>
@@ -40,11 +59,11 @@ function Habit(props) {
             </div>
         </div>
         <div className="options" style={{display:threeDotDisplay?"block":"none"}}>
-            <div 
+            {/* <div 
                 className="optionItem"
             >
                 Update
-            </div>
+            </div> */}
             <div 
                 className="optionItem"
                 onClick={

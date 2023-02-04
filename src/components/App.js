@@ -32,12 +32,12 @@ function App(props) {
     <div className="App">
       <h1>All Habit</h1>
       {habitList ? habitList.map((item, index )=> (
-        console.log("array", item[2]),
         <Habit 
           title={item[0]} 
           handler = {deleteHabitFunction}
           date={item[1]} 
           array={item[2]} 
+          updated={item[3]}
           key={index}
         />
       )) : null}
