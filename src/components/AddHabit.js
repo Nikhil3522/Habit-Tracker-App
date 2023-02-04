@@ -7,8 +7,8 @@ import '../App.css';
 function AddHabit(){
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [inputValue, setInputValue] = useState(null);
-    const [warning, setWarning] = useState(false);
+    const [inputValue, setInputValue] = useState(null); // I store the value which is filled by user in this state.
+    const [warning, setWarning] = useState(false); // This warning is responsive to display the warning message if user click on dubmit buyyon without write anything in input filed.
 
     let newDate = new Date()
     let date = newDate.getDate();
@@ -39,8 +39,9 @@ function AddHabit(){
     //     month = "Dec"
     // }
 
-    let day = date+'/'+month;
+    let day = date+'/'+month; //Format of our date
 
+    // This useEffect is for hide the warning after 3 seconds.
     useEffect(() => {
         setTimeout(() => {
             setWarning(false);
@@ -51,6 +52,7 @@ function AddHabit(){
         <div className="App">
             <h1>Add Habit</h1>
             <div className='AddTaskContainer'>
+                {/* Input field */}
                 <input 
                     className='inputHabitField'
                     type="text" 
@@ -58,6 +60,7 @@ function AddHabit(){
                     onChange={(e) => {setInputValue(e.target.value); e.target.value=''}}
                     value={inputValue}
                 />
+                {/* Submit Button */}
                 <button 
                     onClick={() => (
                         inputValue !== null ?
@@ -68,6 +71,7 @@ function AddHabit(){
                     }
                     className='addButton'
                 >Submit</button>
+                {/* This is warning message */}
                 <div style={{display:warning?"block":"none"}}>
                     <p style={{color:"red", textAlign:"center"}}>Please write something!</p>
                 </div>

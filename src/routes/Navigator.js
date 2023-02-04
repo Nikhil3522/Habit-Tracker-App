@@ -6,7 +6,7 @@ import View from "../components/View";
 const Navigator = () => {
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/Habit-Tracker-App">
             <Routes>
                 <Route
                     path="/" element={ <App /> }

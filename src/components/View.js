@@ -53,7 +53,7 @@ function View(props) {
                             ))}
                         </div>
                         <div style={{display:"flex", justifyContent:"space-between", marginTop:"10px"}}>
-                            Created at: {item[1]}
+                            Created at: {item[1]} 
                             <div className="totalContainer">
                                 <div className="totalSubContainer">
                                     <div className="greyCircle"></div>
@@ -89,6 +89,7 @@ function View(props) {
                 ) : null
             )): null}
                 <div style={{display:modifyStatus?"flex":"none"}} className="changeStatusOfHabit">
+                    {/* This is donr button div */}
                     <div 
                         className="doneBtn"
                         onClick={() => {
@@ -98,6 +99,7 @@ function View(props) {
                     >
                         <img src={doneImg} width="40px" style={{marginTop: "20px", marginLeft:"10px"}}/>
                     </div>
+                    {/* This is unmarked button div */}
                     <div 
                         className="unmarkedBtn"
                         onClick={() => {
@@ -106,6 +108,7 @@ function View(props) {
                         }
                     >
                     </div>
+                    {/* This is not done button div */}
                     <div 
                         className="notdoneBtn"
                         onClick={() => {

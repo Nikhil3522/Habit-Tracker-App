@@ -27,7 +27,7 @@ function Habit(props) {
 
         let difference = todayDate-habitCreatedDate;
 
-        if(difference != 0 && day != props.updated){
+        if(difference != 0 && day != props.updated){ 
             dispatch(afterOneDay(props.title, day))
         }
 
@@ -35,10 +35,14 @@ function Habit(props) {
   return (
     <div className="habit">
         <div>
-            <h2>{props.title}</h2>
+            <h2>{props.title}</h2> 
             <div className="subContainer">
-                <h5>Created at: {props.date}</h5>
+                {/* Display the date of created of habit */}
+                <h5>Created at: {props.date}</h5> 
                 <div className="previousDayContainer">
+                    {/* This is logic that is responsible to show the correct status of daye. If the value is 0 then display 
+                    red status which means not done, if 1 then display grren statue which means done, if -1 then display gray status which
+                    means unmarked.*/}
                     {props.array.map((item, index) => (
                         item === -1 ? 
                             (<div className="previousDayTrack" style={{backgroundColor:"grey"}} key={index}></div>) 
@@ -68,6 +72,7 @@ function Habit(props) {
             >
                 Update
             </div> */}
+            {/* This is Delete Button */}
             <div 
                 className="optionItem"
                 onClick={
@@ -81,6 +86,7 @@ function Habit(props) {
             >
                 Delete
             </div>
+            {/* This is View button */}
             <div 
                 className="optionItem" 
                 onClick={() => navigate(`/view/${props.title}`)}
@@ -88,6 +94,7 @@ function Habit(props) {
                 View
             </div>
         </div>
+        {/* This is threedot logo div */}
         <div>
             <img 
                 className="threeDotLogo" 
