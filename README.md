@@ -1,5 +1,5 @@
 This project is help to track your habit. You can create, delete a habit and you can also update the status of habit as done, notdone or unmarked.
-You can see the previous 6 days status and also change their staus.
+You can see the previous 6 days status and also change their status.
 All your habit data save in localstorage.
 
 If you want to use this app you can click on this link https://nikhil3522.github.io/Habit-Tracker-App/.
