@@ -1,4 +1,4 @@
-This project is help to track you habit. You can create, delete a habit and you can also update the status of habit as done, notdone or unmarked.
+This project is help to track your habit. You can create, delete a habit and you can also update the status of habit as done, notdone or unmarked.
 You can see the previous 6 days status and also change their staus.
 All your habit data save in localstorage.
 
